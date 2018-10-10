@@ -1,6 +1,27 @@
 // Variable to hold request
 var request;
 
+  // Make an AJAX call to Google Script
+  function callGoogleScript(serializedData) {
+
+    var url = "https://script.google.com/macros/s/AKfycbxqJzYs6lwwb-gU4ChjnN386eS7_3IG9MHixyECKA31NJLQUh0/exec?callback=ctrlq";
+    var name = "Amit Agarwal"
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url + encodeURIComponent(name),
+      method: "GET",
+      data: serializedData,
+      dataType: "jsonp"
+    });
+
+  }
+
+  // print the returned data
+  function ctrlq(e) {
+    console.log(e.result)
+  }
+
 // Bind to the submit event of our form
 
 $('#main_form').validator().on('submit', function (e) {
@@ -31,7 +52,7 @@ $('#main_form').validator().on('submit', function (e) {
 
     // Serialize the data in the form
     var serializedData = $form.serialize();
-    serializedData = serializedData + '&uNights' + rNight + '&callback=?';
+    serializedData = serializedData + '&uNights' + rNight;
     console.log(serializedData);
 
     // Let's disable the inputs for the duration of the Ajax request.
@@ -39,35 +60,37 @@ $('#main_form').validator().on('submit', function (e) {
     // Disabled form elements will not be serialized.
     $inputs.prop("disabled", true);
 
+    callGoogleScript(serializedData)
+
     // Fire off the request to /form.php
-    request = $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbxqJzYs6lwwb-gU4ChjnN386eS7_3IG9MHixyECKA31NJLQUh0/exec",
-        type: "post",
-        data: serializedData
-    });
+    // request = $.ajax({
+    //     url: "https://script.google.com/macros/s/AKfycbxqJzYs6lwwb-gU4ChjnN386eS7_3IG9MHixyECKA31NJLQUh0/exec",
+    //     type: "post",
+    //     data: serializedData
+    // });
 
-    // Callback handler that will be called on success
-    request.done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Hooray, it worked!!!");
-        console.log(response);
-        console.log(textStatus);
-        console.log(jqXHR);
-        $('#main_form').hide();
-        $('.application h1').hide();
-        $('#bnet_auth').hide();
-        $('#main_form_success').show();
-    });
+    // // Callback handler that will be called on success
+    // request.done(function (response, textStatus, jqXHR){
+    //     // Log a message to the console
+    //     console.log("Hooray, it worked!!!");
+    //     console.log(response);
+    //     console.log(textStatus);
+    //     console.log(jqXHR);
+    //     $('#main_form').hide();
+    //     $('.application h1').hide();
+    //     $('#bnet_auth').hide();
+    //     $('#main_form_success').show();
+    // });
 
-    // Callback handler that will be called on failure
-    request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
-        $('#main_form_error').show();
-    });
+    // // Callback handler that will be called on failure
+    // request.fail(function (jqXHR, textStatus, errorThrown){
+    //     // Log the error to the console
+    //     console.error(
+    //         "The following error occurred: "+
+    //         textStatus, errorThrown
+    //     );
+    //     $('#main_form_error').show();
+    // });
 
     // Callback handler that will be called regardless
     // if the request failed or succeeded
