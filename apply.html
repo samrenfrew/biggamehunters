@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Big Game Hunters - About</title>
+<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<meta name="description" content="Big Game Hunters are a World of Warcraft heroic raiding guild based on Alonsus EU">
+<meta name="keywords" content="Big Game Hunters, World of Warcraft, Alonsus, EU, Warcraft, Blizzard, Battle.net, Raiding, Guild, KulTiras, Anachronos, Reckoning, WoW">
+<link href="https://fonts.googleapis.com/css?family=Trade+Winds|Rock+Salt" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css?v161130" />
+<link rel="stylesheet" type="text/css" media="all" href="css/spinner.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/ladda.min.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<meta property="og:title" content="Big Game Hunters" />
+<meta property="og:description" content="Big Game Hunters are a World of Warcraft heroic raiding guild based on Alonsus EU" />
+<meta property="og:url" content="http://biggamehunters.eu" />
+<meta property="og:image" content="http://biggamehunters.eu/bgh_logo_social.jpg" />
+<meta property="og:image:secure_url" content="https://biggamehunters.eu/bgh_logo_social.jpg" />
+<meta property="og:image:width" content="420" />
+<meta property="og:image:height" content="360" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Big Game Hunters" />
+</head>
+
+<body>
+  <div style="display:none;"><img src="img/bgh_bg_top.jpg"></div>
+  <div style="display:none;"><img src="img/bgh_bg_container_top.jpg"></div>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="hidden-xs main_logo"><a href="/"><img src="img/bgh_logo.png" srcset="img/bgh_logo.png 1x, img/bgh_logo@2x.png 2x"></a></div>
+      <ul class="nav nav-justified">
+        <li class="navbar-"><a href="/apply.html">Apply To Join</a></li>
+        <li class="navbar-"><a href="/progress.html">BFA Progress</a></li>
+        <li class="navbar-"><a href="/roster.html">Roster</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    <div class="title text-center">
+    <div class="visible-xs-block hidden-sm hidden-md hidden-lg">
+        <a href="/"><img src="img/bgh_logo.png" srcset="img/bgh_logo.png 1x, img/bgh_logo@2x.png 2x"></a>
+    </div>
+  </div><!-- /.container-fluid -->
+</div>
+
+    <div class="container application">
+        <div class="col-sm-10 col-sm-offset-1">
+            <h1 class="text-center">Apply to Join</h1><hr>
+
+            <div class="row text-center col-md-12 bnet_auth" id="bnet_auth">
+                <p>Please enter your main character details here and details will be automatically added to the form</p>
+
+                <div class="form-inline clearfix" id="bnet_fetch">
+                  <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" class="form-control" id="name" placeholder="Character Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="realm">Realm: </label>
+                    <select class="form-control" id="realm">
+                      <option>Alonsus</option>
+                      <option>Kul-Tiras</option>
+                      <option>Anachronos</option>
+                    </select>
+                  </div>
+                  <button class="btn btn-primary ladda-button" data-style="zoom-out" id="fetch">
+                    <span class="ladda-label">Fetch from Battle.net</span></button>
+                    <br><br>
+
+                    <span class="help-block">If the above doesn't work, please enter your details manually below</span>
+
+                    <span id="match_found" class="help-block" style="display:none;">Match found! <span id="match_name"></span></span>
+                <span id="match_not_found" class="help-block" style="display:none;">Match not found!<br>
+                Please make sure you have entered your Character name correctly, as well as chosen the correct Realm</span>
+                <span id="error_504" class="help-block" style="display:none;">Error!<br>
+                The request to Battle.net timed out. Please try again</span>
+                <span id="error_503" class="help-block" style="display:none;">Error!<br>
+                Battle.net is currently down for maintenance. Please try again later</span>
+
+                </div>
+
+            </div>
+
+            <div class="row col-md-12">
+
+<form id="main_form" class="form-horizontal" role="form" data-toggle="validator">
+    <h3 class="text-center">Your <img src="img/bgh_scratch.png" srcset="img/bgh_scratch.png 1x, img/bgh_scratch@2x.png 2x" class="bgh_scratch"> Character</h3>
+<div id="form_character" data-toggle="validator">
+  <div class="form-group has-feedback has-feedback">
+    <label for="cName" class="col-sm-4 control-label">Name</label>
+    <div class="col-sm-6">
+      <input type="name" class="form-control" required id="cName" name="cName" placeholder="Character Name">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cClass" class="col-sm-4 control-label">Class</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cClass" name="cClass" placeholder="Class">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cRace" class="col-sm-4 control-label">Race</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cRace" name="cRace" placeholder="Race">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cGuild" class="col-sm-4 control-label">Current Guild</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cGuild" name="cGuild" placeholder="Current Guild">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cProfPri" class="col-sm-4 control-label">Primary Profession</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cProfPri" name="cProfPri" placeholder="Primary Profession">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cProfSec" class="col-sm-4 control-label">Secondary Profession</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cProfSec" name="cProfSec" placeholder="Secondary Profession">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cIlevel" class="col-sm-4 control-label">Item Level</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cIlevel" name="cIlevel" placeholder="Average Item Level">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cAchi" class="col-sm-4 control-label">Achievement Points</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cAchi" name="cAchi" placeholder="Total Achievement Points">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cArmory" class="col-sm-4 control-label">Armory Link</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cArmory" name="cArmory" placeholder="Link to your character on WoW Armory">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="form-group has-feedback">
+    <label for="cRoleMS" class="col-sm-4 control-label">Main Spec</label>
+    <div class="col-sm-6">
+  <select id="cRoleMS" name="cRoleMS" required class="form-control">
+    <option></option>
+    <option>Tank</option>
+    <option>Healer</option>
+    <option>Melee DPS</option>
+    <option>Ranged DPS</option>
+  </select>
+  </div>
+</div>
+  <div class="form-group">
+    <label for="cRoleOS" class="col-sm-4 control-label">Viable Offspec</label>
+    <div class="col-sm-6">
+  <select id="cRoleOS" name="cRoleOS" class="form-control">
+    <option></option>
+    <option>-</option>
+    <option>Tank</option>
+    <option>Healer</option>
+    <option>Melee DPS</option>
+    <option>Ranged DPS</option>
+  </select>
+  <span id="helpBlock" class="help-block">(at least 35 points in OS weapon)</span>
+  </div>
+</div>
+  <div class="form-group has-feedback">
+    <label for="cBattleTag" class="col-sm-4 control-label">Battle.net Tag</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" required id="cBattleTag" name="cBattleTag" placeholder="e.g. QuirkyTurtle#12345">
+    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+
+<span id="helpBlock" class="help-block">Please include your full Battle.net name, including the number</span>
+    </div>
+  </div>
+  <input type="hidden" name="cAOTC_en" id="cAOTC_en">
+  <input type="hidden" name="cAOTC_tov" id="cAOTC_tov">
+  <input type="hidden" name="cAOTC_nh" id="cAOTC_nh">
+
+</div>
+
+<hr>
+
+  <h3 class="text-center">About <img src="img/bgh_scratch.png" srcset="img/bgh_scratch.png 1x, img/bgh_scratch@2x.png 2x" class="bgh_scratch"> You</h3>
+
+<div class="form-group has-feedback">
+  <div class="col-md-8 col-md-offset-2">
+    <label for="uName" class="control-label">Name</label>
+    <div class="">
+    <input type="text" class="form-control" required id="uName" name="uName" placeholder="">
+    </div>
+  </div>
+</div>
+  <div class="form-group has-feedback">
+    <div class="col-md-8 col-md-offset-2">
+    <label for="uEnjoy" class="control-label">What do you enjoy about raiding?</label>
+    <div class="">
+      <textarea rows="4" class="form-control" required id="uEnjoy" name="uEnjoy" placeholder=""></textarea>
+    </div>
+</div>
+  </div>
+  <div class="form-group has-feedback">
+    <div class="col-md-8 col-md-offset-2">
+    <label for="uPerformance" class="control-label">What actions do you take to improve your raid performance?</label>
+    <div class="">
+      <textarea rows="4" class="form-control" required id="uPerformance" name="uPerformance" placeholder=""></textarea>
+    </div>
+    <span id="helpBlock" class="help-block">This includes any activities outside of raiding like slapping a dummy, keeping up to date with class discussions, simulations etc</span>
+</div>
+  </div>
+<!--   <div class="form-group has-feedback">
+    <div class="col-md-8 col-md-offset-2">
+    <label for="uClassInfo" class="control-label">Where do you get information about your spec and rotation?</label>
+    <div class="">
+      <textarea rows="4" class="form-control" required id="uClassInfo" name="uClassInfo" placeholder=""></textarea>
+    </div>
+</div>
+</div> -->
+<div class="form-group">
+  <div class="col-md-8 col-md-offset-2">
+    <label for="uLogs" class="control-label">Link to your most recent logs</label>
+    <div class="">
+    <input type="text" class="form-control" id="uLogs" name="uLogs" placeholder="">
+    </div>
+    <!-- <span id="helpBlock" class="help-block">(if applicable)</span> -->
+  </div>
+</div>
+<!--   <div class="form-group has-feedback">
+    <div class="col-md-8 col-md-offset-2">
+    <label for="uHistory" class="control-label">Whats your Guild history?</label>
+    <div class="">
+      <textarea rows="4" class="form-control" required id="uHistory" name="uHistory" placeholder=""></textarea>
+    </div>
+</div>
+</div> -->
+  <div class="form-group has-feedback">
+    <div class="col-md-8 col-md-offset-2">
+    <label for="uMemory" class="control-label">What's your favourite Warcraft memory?</label>
+    <div class="">
+      <textarea rows="4" class="form-control" required id="uMemory" name="uMemory" placeholder=""></textarea>
+    </div>
+</div>
+</div>
+
+  <div class="form-group has-feedback">
+    <div class="col-md-8 col-md-offset-2">
+    <label for="uNights" class="control-label">Preferred Raid Nights</label>
+    <div class="">
+
+<select id="uNights" name="uNights" required multiple size="7" class="form-control">
+  <option>Monday</option>
+  <option>Tuesday</option>
+  <option>Wednesday</option>
+  <option>Thursday</option>
+  <option>Friday</option>
+  <option>Saturday</option>
+  <option>Sunday</option>
+</select>
+
+<span id="helpBlock" class="help-block">Use Ctrl + Click (&#8984; + Click on Mac) to select multiple nights</span>
+
+    </div>
+</div>
+  </div>
+
+<div class="form-group has-feedback">
+  <div class="col-md-8 col-md-offset-2">
+    <label for="uWhere" class="control-label">Where did you hear about us?</label>
+    <div class="">
+    <input type="text" class="form-control" required id="uWhere" name="uWhere" placeholder="">
+    </div>
+  </div>
+</div>
+
+  <div class="form-group text-center">
+    <div class="col-sm-12">
+        <button type="submit" id="submit_form" class="btn btn-primary btn-lg ladda-button" data-style="zoom-out" data-toggle="tooltip" data-placement="right" title="Please fill in all fields before submitting">
+            <span class="ladda-label">Submit</span>
+        </button>
+
+
+    </div>
+  </div>
+
+</form>
+
+            </div>
+
+            <div class="col-md-10 col-md-offset-1 bg-success form_complete text-center" id="main_form_success" style="display:none;">
+                <h3>Congratulations, your application has been submitted. We will contact you in game if your application has been successful</h3>
+            </div>
+            <div class="col-md-8 col-md-offset-2 bg-danger form_complete text-center" id="main_form_error" style="display:none;">
+                An error has occurred, please try again. <br>If the problem persists, please contact one of the officers in-game
+            </div>
+
+        </div>
+    </div><!-- /container -->
+
+<footer>
+    <div class="row text-center">&copy; 2018 Big Game Hunters</div>
+<script src="js/spin.min.js"></script>
+<script src="js/ladda.min.js"></script>
+<script src="js/wow_class.js"></script>
+<script src="js/wow_race.js"></script>
+<script src="js/bnet_char.js"></script>
+<script src="js/validator.min.js"></script>
+<script src="js/form_submit.js"></script>
+</footer>
+
+</body>
+</html>
