@@ -24,7 +24,9 @@ This will install all dependencies. Alternatively, use Github desktop to clone t
 
 ## Building the site
 
-There are some gulp tasks set up to help building the site. Firstly, ensure you have created a new branch in git to work on, and make sure you have pulled the latest version from master. During dev, you can use
+All changes should be made within the 'dev' folder. Create a new branch within git, and make sure you have pulled the latest version
+
+There are some gulp tasks set up to help building the site - use
 ```
 gulp watch
 ```
@@ -33,11 +35,9 @@ to run both browsersync (live reloading of the site) and to convert any sass fil
 ## Deployment
 
 Deployment is currently set up to a 'gh-pages' branch. Use the following to build the files
-
 ```
 gulp build
 ```
-
 This will deploy all code to the 'dist' folder, which can then be pushed to the 'gh-pages' branch. This branch is currently locked
 
 ```
