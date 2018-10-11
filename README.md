@@ -20,7 +20,7 @@ cd into the 'biggamehunters' directory and then run
 npm install --save-dev
 ```
 
-This will install all dependencies. Alternatively, use Github desktop to clone the repo, but you'll still need to run npm to grab the dependencies
+This will install all dependencies. Alternatively, use Github desktop to clone the repo, but you'll still need to run npm to grab the dependencies.
 
 ## Building the site
 
