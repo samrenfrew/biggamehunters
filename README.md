@@ -17,7 +17,7 @@ git clone https://github.com/samrenfrew/biggamehunters.git
 cd into the 'biggamehunters' directory and then run
 
 ```
-npm init
+npm install --save-dev
 ```
 
 This will install all dependencies.
