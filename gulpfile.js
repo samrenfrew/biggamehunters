@@ -1,27 +1,27 @@
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync').create();
-var sass = require('gulp-sass');
+// var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var csso = require('gulp-csso');
 
 gulp.task('reload', function() {
     browserSync.init({
         server: {
-            baseDir: 'dev'
+            baseDir: ''
         },
     })
 })
 
-gulp.task('scss', function(){
-     return gulp.src('scss/styles.scss')
-     .pipe(plumber(function (error) {
-        this.emit('end');
-    }))
-    .pipe(sass())
-    .pipe(gulp.dest('css'))
-    .pipe(browserSync.reload({ stream: true }))
-});
+// gulp.task('scss', function(){
+//      return gulp.src('scss/styles.scss')
+//      .pipe(plumber(function (error) {
+//         this.emit('end');
+//     }))
+//     .pipe(sass())
+//     .pipe(gulp.dest('css'))
+//     .pipe(browserSync.reload({ stream: true }))
+// });
 
 gulp.task('js', function(){
      return gulp.src('js/*.js')
@@ -51,7 +51,7 @@ gulp.task('img', function(){
 })
 
 gulp.task('watch', ['reload'], function (){
-    gulp.watch('scss/styles.scss', ['scss']);
+    // gulp.watch('scss/styles.scss', ['scss']);
     gulp.watch("**/*.*").on('change', browserSync.reload);
 })
 
