@@ -89,10 +89,10 @@ $.each(wow_guild.members, function(i, v) {
   if (x.spec != null){
     spec = x.spec.name
   }
-  var bigImg = x.thumbnail.replace(/avatar/gi, 'profilemain')
-  bigImg = "'http://render-eu.worldofwarcraft.com/character/" + bigImg + "?alt=/wow/static/images/2d/profilemain/race/" + x.race + "-" + x.gender + ".jpg'"
+  var bigImg = x.thumbnail.replace(/avatar/gi, 'inset')
+  bigImg = "'http://render-eu.worldofwarcraft.com/character/" + bigImg + "?alt=/wow/static/images/2d/inset/race/" + x.race + "-" + x.gender + ".jpg'"
   if(loc != null && x.level > 100){
-    loc.append('<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="roster_member c' + x.class + '" style="background-image:url(' + bigImg + ')"><a href="http://eu.battle.net/wow/en/character/' + x.realm + '/' + x.name + '/advanced" data-name="' + x.name + '" data-realm="' + x.realm + '"><div class="cName">' + x.name + '</div><div class="cLvl">' + x.level + '</div><div class="cSpec">' + spec + '</div></a></div></div>')
+    loc.append('<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="roster_member c' + x.class + '" style="background-image:url(' + bigImg + ')"><a href="https://worldofwarcraft.com/en-gb/character/' + x.realm + '/' + x.name + '" data-name="' + x.name + '" data-realm="' + x.realm + '"><div class="cName">' + x.name + '</div><div class="cLvl">' + x.level + '</div><div class="cSpec">' + spec + '</div></a></div></div>')
   }
   if(i == wow_guild.members.length - 1){
     loadFinished();
@@ -164,8 +164,8 @@ function fetchUserProfile(name, realm){
 
 function fetchprofile(data){
   console.log(data);
-  var bigImg = data.thumbnail.replace(/avatar/gi, 'profilemain');
-  bigImg = "http://render-eu.worldofwarcraft.com/character/" + bigImg + "?alt=/wow/static/images/2d/profilemain/race/" + data.race + "-" + data.gender + ".jpg";
+  var bigImg = data.thumbnail.replace(/avatar/gi, 'inset');
+  bigImg = "http://render-eu.worldofwarcraft.com/character/" + bigImg + "?alt=/wow/static/images/2d/inset/race/" + data.race + "-" + data.gender + ".jpg";
   console.log(bigImg);
   $('#modal_bg').css({
     'background-image':'url(' + bigImg + ')',

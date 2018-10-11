@@ -31,7 +31,7 @@ $('#main_form').validator().on('submit', function (e) {
 
     // Serialize the data in the form
     var serializedData = $form.serialize();
-    serializedData = serializedData + '&uNights' + rNight;
+    serializedData = serializedData + '&uNights' + rNight + '&uRecruited=&uInGuild=&uFacebook=';
     console.log(serializedData);
 
     // Let's disable the inputs for the duration of the Ajax request.

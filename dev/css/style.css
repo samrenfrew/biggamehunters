@@ -446,9 +446,10 @@ a, a:hover, a:focus {
 }
 
 .roster_member {
-    background:#f5f5f5;
-    background-size:cover;
-    background-position:center;
+    background-color:#000;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:bottom center;
     border-radius:8px;
     text-align:left;
     padding:1em;
@@ -471,7 +472,7 @@ a, a:hover, a:focus {
     margin-bottom:0.5em;
 }
 .roster_member .cName {
-    padding-top:5em;
+    padding-top:4em;
     font-size:1.4em;
     /*font-weight:700;*/
     font-family: 'Trade Winds', 'Helvetica Neue', Arial, sans-serif !important;

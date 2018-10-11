@@ -76,7 +76,7 @@ $('#cProfPri').val(prof1);
 $('#cProfSec').val(prof2);
 
 //Armory
-$('#cArmory').val('http://eu.battle.net/wow/en/character/' + data.realm + '/' + data.name + '/simple')
+$('#cArmory').val('https://worldofwarcraft.com/en-gb/character/' + data.realm + '/' + data.name)
 
 //Progression
 // if($.inArray(11194, data.achievements.achievementsCompleted) != -1){
@@ -108,7 +108,7 @@ if($(data.guild).length != 0){
 }
 
 // Validate
-$('#form_character').validator('validate');
+// $('#form_character').validator('validate');
 
 } else if(data.code == 504) {
     helper_text();
