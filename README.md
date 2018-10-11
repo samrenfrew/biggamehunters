@@ -40,10 +40,10 @@ Deployment is currently set up to a 'dist' branch. Use the following to build th
 gulp build
 ```
 
-This will deploy all code to the 'dist' folder, which can then be pushed to the dist branch
+This will deploy all code to the 'dist' folder, which can then be pushed to the 'gh-pages' branch
 
 ```
-git subtree push --prefix dist origin dist
+git subtree push --prefix dist origin gh-pages
 ```
 
 ## License
