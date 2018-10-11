@@ -122,8 +122,8 @@ function characterCount(ranks){
   $.each(wow_guild.members, function(i, v) {
     var x = v.character;
     $.each(charCount.classes, function(a, b){
-    if(x.class == b.id && x.level > 100){
-      if(v.rank == 0 || v.rank == 1 || v.rank == 2){
+    if(x.class == b.id && x.level == 120){
+      if(v.rank == 0 || v.rank == 1 || v.rank == 3){
         this.count = this.count + 1
       }
     }
