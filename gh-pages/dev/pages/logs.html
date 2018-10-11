@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Big Game Hunters - Logs Analysis</title>
+    {% include 'head.html' %}
+</head>
+
+<body>
+  {% include 'nav.html' %}
+
+<div class="container-fluid">
+    <div class="title text-center">
+    <div class="visible-xs-block hidden-sm hidden-md hidden-lg">
+        <a href="/"><img src="img/bgh_logo.png" srcset="img/bgh_logo.png 1x, img/bgh_logo@2x.png 2x"></a>
+    </div>
+  </div><!-- /.container-fluid -->
+</div>
+
+    <div class="container application">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="row">
+            <h1 class="text-center">Logs <img src="img/bgh_scratch.png" srcset="img/bgh_scratch.png 1x, img/bgh_scratch@2x.png 2x" class="bgh_scratch"> Analysis</h1><hr>
+          </div>
+
+        <div class="row text-center col-md-12 bnet_auth" id="bnet_auth">
+                <p>Enter the report ID here:</p>
+
+                <div class="form-inline clearfix" id="bnet_fetch">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="reportid" placeholder="Report ID" size="25">
+                  </div>
+                  <button class="btn btn-primary ladda-button" data-style="zoom-out" id="fetch">
+                    <span class="ladda-label">Fetch Log</span></button>
+
+
+                    <span class="help-block">https://www.warcraftlogs.com/reports/XXXXXXXX</span>
+
+                    <button class="btn btn-default open_modal" data-toggle="modal" data-target="#latest_reports">View latest reports</button>
+
+                    <span id="match_found" class="help-block" style="display:none;">Log found! <span id="match_name"></span></span>
+                <span id="match_not_found" class="help-block" style="display:none;">Log not found!<br>
+                Please make sure you have entered the report ID correctly</span>
+                <span id="error_504" class="help-block" style="display:none;">Error!<br>
+                The request to Warcraft Logs timed out. Please try again</span>
+                <span id="error_503" class="help-block" style="display:none;">Error!<br>
+                Warcraft Logs is currently down for maintenance. Please try again later</span>
+
+                </div>
+
+            </div>
+
+            <div class="row logs_analysis">
+              <div class="report_select clearfix" style="display:none;"></div>
+              <div class="chosen_report clearfix" style="display:none;">
+              </div>
+                <!-- <canvas id="canvas_dps" height="200" width="400"></canvas> -->
+            </div>
+          </div>
+
+<!--           <div class="row charts">
+            <canvas id="canvas" height="600" width="1000"></canvas>
+          </div> -->
+
+<!--             <div class="row logs_analysis">
+            <div class="col-xs-12 col-md-12">
+                <h2>Recent Reports</h2>
+                <div id="reports_loading" class="spinner">
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+                </div>
+
+            <div class="latest_reports" style="display:none;"></div>
+            </div>
+          </div> -->
+
+            <div class="col-md-10 col-md-offset-1 bg-warning text-center bnet_auth" id="error_503" style="display:none;">
+                Battle.net is currently undergoing scheduled maintenance. Some aspects of this page may not display as intended
+            </div>
+            <div class="col-md-10 col-md-offset-1 bg-warning text-center bnet_auth" id="error_504" style="display:none;">
+                The Battle.net API has timed out. Some aspects of this page may not display as intended, try refreshing the page
+            </div>
+
+        </div>
+
+
+    </div>
+
+  <div class="modal fade" id="latest_reports" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Latest Reports</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<footer>
+    <div class="row text-center">&copy; 2018 Big Game Hunters</div>
+<script src="js/spin.min.js"></script>
+<script src="js/ladda.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="js/wcl_analysis.js"></script>
+</footer>
+</body>
+</html>

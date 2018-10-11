@@ -1,0 +1,22 @@
+{
+  "name": "bgh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-csso": "^2.0.0",
+    "gulp-nunjucks-render": "^2.2.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp-watch": "^5.0.1"
+  }
+}
