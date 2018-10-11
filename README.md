@@ -4,7 +4,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You'll need both node and git installed before running this
+You'll need both npm and git installed before development. The site is built using bootstrap and nunjucks, with some gulp tasks to help preview during dev
 
 ### Installing
 
@@ -24,20 +24,22 @@ This will install all dependencies. Alternatively, use Github desktop to clone t
 
 ## Building the site
 
-There are some gulp tasks set up to help building the site. Firstly, ensure you have created a new branch in git to work on, and make sure you have pulled the latest version from master. During dev, you can use
+All changes should be made within the 'dev' folder. Create a new branch within git, and make sure you have pulled the latest version.
+
+The site uses nunjucks for development - site pages are held in 'pages' folder, whilst 'snippets' has the templates used to build the pages
+
+To preview whilst you're developing, use
 ```
 gulp watch
 ```
-to run both browsersync (live reloading of the site) and to convert any sass files to css
+to run the build task - this will combine all the nunjucks templates, as well as load browsersync for live reloading after each file is saved
 
 ## Deployment
 
 Deployment is currently set up to a 'gh-pages' branch. Use the following to build the files
-
 ```
 gulp build
 ```
-
 This will deploy all code to the 'dist' folder, which can then be pushed to the 'gh-pages' branch. This branch is currently locked
 
 ```
