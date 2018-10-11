@@ -20,7 +20,7 @@ cd into the 'biggamehunters' directory and then run
 npm install --save-dev
 ```
 
-This will install all dependencies.
+This will install all dependencies
 
 ## Building the site
 
