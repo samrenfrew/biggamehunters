@@ -60,27 +60,44 @@ if (data.faction == 0){
 $("#cAchi").val(data.achievementPoints);
 
 //Professions
-$('#cProfPri').val(data.professions.primary[0].name + ' (' + data.professions.primary[0].rank + ')');
-$('#cProfSec').val(data.professions.primary[1].name + ' (' + data.professions.primary[1].rank + ')');
+var professions = ['Engineering','Herbalism','Mining','Leatherworking','Tailoring','Jewelcrafting','Inscription','Enchanting','Alchemy','Blacksmithing']
+var prof1 = false;
+var prof2;
+$.each(data.professions.primary, function(i,v){
+    if($.inArray(v.name, professions) != -1){
+        if(prof1 == false){
+            prof1 = v.name
+        } else {
+            prof2 = v.name
+        }
+    }
+})
+$('#cProfPri').val(prof1);
+$('#cProfSec').val(prof2);
 
 //Armory
 $('#cArmory').val('http://eu.battle.net/wow/en/character/' + data.realm + '/' + data.name + '/simple')
 
 //Progression
-if($.inArray(11194, data.achievements.achievementsCompleted) != -1){
-    $('#cAOTC_en').val('Yes')
+// if($.inArray(11194, data.achievements.achievementsCompleted) != -1){
+//     $('#cAOTC_en').val('Yes')
+// } else {
+//     $('#cAOTC_en').val('No')
+// }
+// if($.inArray(11581, data.achievements.achievementsCompleted) != -1){
+//     $('#cAOTC_tov').val('Yes')
+// } else {
+//     $('#cAOTC_tov').val('No')
+// }
+// if($.inArray(11195, data.achievements.achievementsCompleted) != -1){
+//     $('#cAOTC_nh').val('Yes')
+// } else {
+//     $('#cAOTC_nh').val('No')
+// }
+if($.inArray(12536, data.achievements.achievementsCompleted) != -1){
+    $('#cAOTC_u').val('Yes')
 } else {
-    $('#cAOTC_en').val('No')
-}
-if($.inArray(11581, data.achievements.achievementsCompleted) != -1){
-    $('#cAOTC_tov').val('Yes')
-} else {
-    $('#cAOTC_tov').val('No')
-}
-if($.inArray(11195, data.achievements.achievementsCompleted) != -1){
-    $('#cAOTC_nh').val('Yes')
-} else {
-    $('#cAOTC_nh').val('No')
+    $('#cAOTC_u').val('No')
 }
 
 //Guild
