@@ -36,12 +36,8 @@ to run the build task - this will combine all the nunjucks templates, as well as
 
 ## Deployment
 
-Deployment is currently set up to a 'gh-pages' branch. Use the following to build the files
+Deployment is currently set up to a 'release' branch. Use the following to build the files
 ```
 gulp build
 ```
-This will deploy all code to the 'dist' folder, which can then be pushed to the 'gh-pages' branch. This branch is currently locked
-
-```
-git subtree push --prefix dist origin gh-pages
-```
+This will deploy all code to the 'dist' folder, which can then be pushed to the 'release' branch. The code can then be fetched by the server remotely
