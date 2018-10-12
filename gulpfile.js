@@ -78,14 +78,17 @@ exports.img = img;
 exports.html = html;
 exports.reload = reload;
 
+var preview = gulp.parallel(css, js, fonts, img, html);
+gulp.task('preview', preview);
+
 var build = gulp.series(clean, gulp.parallel(css, js, fonts, img, html));
 gulp.task('build', build);
 
-gulp.task('watch', gulp.series(build, function () {
+gulp.task('watch', gulp.series(preview, function () {
     browserSync.init({
         server: {
             baseDir: "dist"
         }
     });
-    gulp.watch("dev/**/*.*").on('change', gulp.series(build, reload));
+    gulp.watch("dev/**/*.*").on('change', gulp.series(preview, reload));
 }));
