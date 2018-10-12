@@ -3,3 +3,4 @@ node_modules/
 !/.htaccess
 publish.sh
 .DS_Store
+package-lock.json
