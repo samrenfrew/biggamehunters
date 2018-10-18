@@ -5,7 +5,7 @@ var uldir = {"id":9389,"name":"Uldir","urlSlug":"uldir","description":"Millennia
 var raid_data =
 {'uldir':[
 {'complete':1,'mode':'mythic','date':'', 'name':'taloc'},
-{'complete':1,'mode':'heroic','date':'', 'name':'mother'},
+{'complete':1,'mode':'mythic','date':'', 'name':'mother'},
 {'complete':1,'mode':'heroic','date':'', 'name':'fetid'},
 {'complete':1,'mode':'heroic','date':'', 'name':'zekv'},
 {'complete':1,'mode':'heroic','date':'', 'name':'vectis'},
