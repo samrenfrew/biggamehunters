@@ -118,6 +118,7 @@ function renderProgBar(difficulty, zone, count){
   var percent = ((count / total)*100).toFixed(0)
   target.find('.progress').attr('data-original-title', 'Defeated '+count+' of '+total)
   target.find('.progress-bar').attr('aria-valuenow', percent).html(percent+'%').css('width',percent+'%')
+  $('[data-toggle="tooltip"]').tooltip()
 }
 
 // hide loader and show progress when complete
