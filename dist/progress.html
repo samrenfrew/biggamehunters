@@ -68,62 +68,49 @@
 
     <div class="container application">
         <div class="col-sm-10 col-sm-offset-1">
-            <h1 class="text-center">Battle for Azeroth Progress</h1><hr>
+            <h1 class="text-center">Battle for Azeroth Progress</h1>
+            <hr>
+
         </div>
 
-<!--             <div class="row legion_progress">
-            <div class="col-xs-12 raid">
-                <h2 class="text-center">The <img src="img/bgh_scratch.png" srcset="img/bgh_scratch.png 1x, img/bgh_scratch@2x.png 2x" class="bgh_scratch"> Nighthold</h2>
-                <div id="nighthold_loading" class="spinner">
-                  <div class="bounce1"></div>
-                  <div class="bounce2"></div>
-                  <div class="bounce3"></div>
-                </div>
+        <div class="row progress_container">
+          <div class="col-xs-12 raid">
+            <h2 class="text-center">Uldir</h2>
+              <div class="loading spinner" data-zoneid="9389">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
 
-            <div id="the_nighthold" style="display:none;"></div>
+            <div class="progress_data" id="uldir" data-zoneid='9389' style="display:none;">
+              <div class="col-xs-6 col-xs-offset-3 rank text-center">
+                <div class="col-xs-6 realm">
+                  <div class="title">Realm</div>
+                  <div class="rank_number">0</div>
+                </div>
+                <div class="col-xs-6 region">
+                  <div class="title">Region</div>
+                  <div class="rank_number">0</div>
+                </div>
+              </div>
+                <div class="col-xs-12 col-md-6 prog_bar mythic" data-zoneid="9389"><h3>Mythic:</h3><div class="progress" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Defeated 0 of 0"><div class="progress-bar mythic" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div></div></div>
+
+                <div class="col-xs-12 col-md-6 prog_bar heroic" data-zoneid="9389"><h3>Heroic:</h3><div class="progress" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Defeated 0 of 0"><div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div></div></div>
             </div>
           </div>
+          <hr>
+        </div>
 
-            <div class="row legion_progress">
-              <div class="col-xs-12 raid">
-                  <hr><h2 class="text-center">Trials  of Valor</h2>
-                  <div id="tov_loading" class="spinner">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                  </div>
-
-              <div id="tov" style="display:none;"></div>
-              </div>
-            </div> -->
-
-            <div class="row legion_progress">
-              <div class="col-xs-12 raid">
-                <h2 class="text-center">Uldir <!-- <img src="img/bgh_scratch.png" srcset="img/bgh_scratch.png 1x, img/bgh_scratch@2x.png 2x" class="bgh_scratch"> Nightmare --></h2>
-                  <div id="uldir_loading" class="spinner">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                  </div>
-
-              <div id="uldir" style="display:none;"></div>
-              </div>
-              <hr>
-            </div>
+        <div class="col-md-10 col-md-offset-1 bg-warning text-center bnet_auth" id="error_503" style="display:none;">
+            Battle.net is currently undergoing scheduled maintenance. Some aspects of this page may not display as intended
+        </div>
+        <div class="col-md-10 col-md-offset-1 bg-warning text-center bnet_auth" id="error_504" style="display:none;">
+            The Battle.net API has timed out. Some aspects of this page may not display as intended, try refreshing the page
+        </div>
 
 
-                </div>
-            </div>
+      </div>
 
-            <div class="col-md-10 col-md-offset-1 bg-warning text-center bnet_auth" id="error_503" style="display:none;">
-                Battle.net is currently undergoing scheduled maintenance. Some aspects of this page may not display as intended
-            </div>
-            <div class="col-md-10 col-md-offset-1 bg-warning text-center bnet_auth" id="error_504" style="display:none;">
-                The Battle.net API has timed out. Some aspects of this page may not display as intended, try refreshing the page
-            </div>
-
-
-    </div>
 <footer>
     <div class="row text-center">&copy; 2018 Big Game Hunters</div>
 <script src="js/spin.min.js"></script>

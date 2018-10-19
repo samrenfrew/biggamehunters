@@ -1,9 +1,28 @@
+/* Sass Variables */
+$hunter: #aad372;
+$rogue: #fff468;
+$warrior: #c69b6d;
+$paladin: #f48cba;
+$shaman: #2359ff;
+$mage: #68ccef;
+$priest: #fff;;
+$dk: #c41e3b;
+$druid: #ff7c0a;
+$demonhunter: #a330c9;
+$warlock: #9382c9;
+$monk: #008467;
+
+$color_green: #94a700;
+$color_red: #ff1d24;
+
+$font_bgh: 'Trade Winds', 'Helvetica Neue', Arial, sans-serif;
+
 body {
     background-image:url('../img/bgh_bg_top.jpg') !important;
     background-size:contain !important;
     background-repeat:no-repeat !important;
     background-position:top center !important;
-    background-color:#94a700 !important;
+    background-color:$color_green !important;
 }
 
 footer {
@@ -12,7 +31,7 @@ footer {
 }
 
 h1, h2, h3{
-   font-family: 'Trade Winds', 'Helvetica Neue', Arial, sans-serif !important;
+   font-family: $font_bgh !important;
 }
 
 a, a:hover, a:focus {
@@ -26,102 +45,102 @@ a, a:hover, a:focus {
 
 /* Colours */
 .c1 {
-    border: 0px solid #c69b6d !important;
-    border-bottom: 10px solid #c69b6d !important;
+    border: 0px solid $warrior !important;
+    border-bottom: 10px solid $warrior !important;
 }
 .c2 {
-    border: 0px solid #f48cba !important;
-    border-bottom: 10px solid #f48cba !important;
+    border: 0px solid $paladin !important;
+    border-bottom: 10px solid $paladin !important;
 }
 .c3 {
-    border: 0px solid #aad372 !important;
-    border-bottom: 10px solid #aad372 !important;
+    border: 0px solid $hunter !important;
+    border-bottom: 10px solid $hunter !important;
 }
 .c4 {
-    border: 0px solid #fff468 !important;
-    border-bottom: 10px solid #fff468 !important;
+    border: 0px solid $rogue !important;
+    border-bottom: 10px solid $rogue !important;
 }
 .c5 {
-    border: 0px solid #ffffff !important;
-    border-bottom: 10px solid #ffffff !important;
+    border: 0px solid $priest !important;
+    border-bottom: 10px solid $priest !important;
 }
 .c6 {
-    border: 0px solid #c41e3b !important;
-    border-bottom: 10px solid #c41e3b !important;
+    border: 0px solid $dk !important;
+    border-bottom: 10px solid $dk !important;
 }
 .c7 {
-    border: 0px solid #2359ff !important;
-    border-bottom: 10px solid #2359ff !important;
+    border: 0px solid $shaman !important;
+    border-bottom: 10px solid $shaman !important;
 }
 .c8 {
-    border: 0px solid #68ccef !important;
-    border-bottom: 10px solid #68ccef !important;
+    border: 0px solid $mage !important;
+    border-bottom: 10px solid $mage !important;
 }
 .c9 {
-    border: 0px solid #9382c9 !important;
-    border-bottom: 10px solid #9382c9 !important;
+    border: 0px solid $warlock !important;
+    border-bottom: 10px solid $warlock !important;
 }
 .c10 {
-    border: 0px solid #008467 !important;
-    border-bottom: 10px solid #008467 !important;
+    border: 0px solid $monk !important;
+    border-bottom: 10px solid $monk !important;
 }
 .c11 {
-    border: 0px solid #ff7c0a !important;
-    border-bottom: 10px solid #ff7c0a !important;
+    border: 0px solid $druid !important;
+    border-bottom: 10px solid $druid !important;
 }
 .c12 {
-    border: 0px solid #a330c9 !important;
-    border-bottom: 10px solid #a330c9 !important;
+    border: 0px solid $demonhunter !important;
+    border-bottom: 10px solid $demonhunter !important;
 }
 
-.c1:hover .cName {color:#c69b6d !important}
-.c2:hover .cName {color:#f48cba !important}
-.c3:hover .cName {color:#aad372 !important}
-.c4:hover .cName {color:#fff468 !important}
-.c5:hover .cName {color:#ffffff !important}
-.c6:hover .cName {color:#c41e3b !important}
-.c7:hover .cName {color:#2359ff !important}
-.c8:hover .cName {color:#68ccef !important}
-.c9:hover .cName {color:#9382c9 !important}
-.c10:hover .cName {color:#008467 !important}
-.c11:hover .cName {color:#ff7c0a !important}
-.c12:hover .cName {color:#a330c9 !important}
+.c1:hover .cName {color:$warrior !important}
+.c2:hover .cName {color:$paladin !important}
+.c3:hover .cName {color:$hunter !important}
+.c4:hover .cName {color:$rogue !important}
+.c5:hover .cName {color:$priest !important}
+.c6:hover .cName {color:$dk !important}
+.c7:hover .cName {color:$shaman !important}
+.c8:hover .cName {color:$mage !important}
+.c9:hover .cName {color:$warlock !important}
+.c10:hover .cName {color:$monk !important}
+.c11:hover .cName {color:$druid !important}
+.c12:hover .cName {color:$demonhunter !important}
 
 .a1 {
-    color:#c69b6d !important;
+    color:$warrior !important;
 }
 .a2 {
-    color:#f48cba !important;
+    color:$paladin !important;
 }
 .a3 {
-    color:#aad372 !important;
+    color:$hunter !important;
 }
 .a4 {
-    color:#fff468 !important;
+    color:$rogue !important;
 }
 .a5 {
-    color:#ffffff !important;
+    color:$priest !important;
 }
 .a6 {
-    color:#c41e3b !important;
+    color:$dk !important;
 }
 .a7 {
-    color:#2359ff !important;
+    color:$shaman !important;
 }
 .a8 {
-    color:#68ccef !important;
+    color:$mage !important;
 }
 .a9 {
-    color:#9382c9 !important;
+    color:$warlock !important;
 }
 .a10 {
-    color:#008467 !important;
+    color:$monk !important;
 }
 .a11 {
-    color:#ff7c0a !important;
+    color:$druid !important;
 }
 .a12 {
-    color:#a330c9 !important;
+    color:$demonhunter !important;
 }
 
 .container.application {
@@ -169,13 +188,13 @@ a, a:hover, a:focus {
 }
 
 .nav>li>a {
-    font-family: 'Trade Winds', 'Helvetica Neue', Arial, sans-serif !important;
+    font-family: $font_bgh !important;
     color:#fff;
     font-size:1.6em;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
-    color:#ff1d24;
+    color:$color_red;
     text-shadow:1px 1px 0px #694344;
     background:none !important;
 }
@@ -207,7 +226,7 @@ a, a:hover, a:focus {
     .navbar {
     }
     .navbar li a {
-        font-family: 'Trade Winds', 'Helvetica Neue', Arial, sans-serif !important;
+        font-family: $font_bgh !important;
         color:#fff;
         font-size:1.6em;
     }
@@ -217,7 +236,7 @@ a, a:hover, a:focus {
 }
 
 .apply_link {
-    font-family: 'Trade Winds', 'Helvetica Neue', Arial, sans-serif !important;
+    font-family: $font_bgh !important;
 }
 .apply_link a {
     color:#333;
@@ -225,7 +244,7 @@ a, a:hover, a:focus {
 }
 
 .apply_link a:hover, .apply_link a:focus{
-    color:#ff1d24;
+    color:$color_red;
     text-shadow:1px 1px 0px #694344;
     text-decoration:none;
 }
@@ -236,7 +255,7 @@ a, a:hover, a:focus {
 }
 
 .quote img {
-    border:5px solid #94a700;
+    border:5px solid $color_green;
 }
 
 .quote_bubble {
@@ -328,6 +347,22 @@ a, a:hover, a:focus {
 }
 
 /*PROGRESS*/
+.rank {
+    margin-bottom:10px;
+}
+
+.rank .title {
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+.rank .rank_number {
+    font-family: $font_bgh !important;
+    font-size:3em;
+    line-height:1em;
+    // color: $color_green;
+}
+
 .guild_progress .row {
     padding:0 30px 0 20px;
 }
@@ -355,17 +390,17 @@ a, a:hover, a:focus {
 }
 
 .progress-bar {
-    background:#94a700;
+    background:$color_green;
 }
 
-.progress-bar.heroic {
+.heroic .progress-bar {
     background:#bb1d22;
 }
-.progress-bar.mythic {
+.mythic .progress-bar {
     background:#8d1dbb;
 }
 
-.legion_progress .boss {
+.progress_container .boss {
     background-color:#EAEAEA;
     background-repeat:no-repeat;
     background-position: bottom center;
@@ -377,11 +412,11 @@ a, a:hover, a:focus {
 }
 
 .boss h3 {
-   font-size:;
+   // font-size:;
 }
 
 .boss.complete.normal {
-    background-color:#94a700;
+    background-color:$color_green;
 }
 .boss.complete.heroic {
     background-color:#bb1d22;
@@ -475,7 +510,7 @@ a, a:hover, a:focus {
     padding-top:4em;
     font-size:1.4em;
     /*font-weight:700;*/
-    font-family: 'Trade Winds', 'Helvetica Neue', Arial, sans-serif !important;
+    font-family: $font_bgh !important;
     color:#fff;
     transition:all 0.3s ease;
 }
@@ -500,13 +535,13 @@ h2 small {
 
 /* MODAL */
 .modal-header h1 {
-    font-family:'Trade Winds';
+    font-family: $font_bgh;
     color:#fff;
 }
 
 
 @media screen and (max-width:767px){
-    .legion_progress .boss {
+    .progress_container .boss {
         min-height:150px;
         background-position:bottom left;
         padding-left:40%;
