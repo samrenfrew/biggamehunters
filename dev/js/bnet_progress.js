@@ -52,7 +52,7 @@ function renderRaid(data, zone, name){
   var loader = $('.loading[data-zoneid="'+ zone +'"]')
 
   // insert raid description
-  target.prepend('<p class="col-xs-12 col-lg-10 col-lg-offset-1 text-center">' + data.description + '</p>')
+  target.prepend('<p class="hidden-xs col-xs-12 col-lg-10 col-lg-offset-1 text-center">' + data.description + '</p>')
 
   // fill with the bosses
   var total = 0;
