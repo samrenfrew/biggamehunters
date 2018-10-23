@@ -131,44 +131,40 @@ function helper_text(){
     $('#bnet_auth').removeClass('bg-danger');
 }
 
-//Fetch User Profile
+// Bind on page load
 $(function() {
-
-// $.ajax({
-//     url: 'https://eu.api.battle.net/wow/data/character/classes?jsonp=cLass&locale=en_GB&apikey=9tdd7cvwkq922fz7a6438wvvftpf35db',
-//     dataType: "jsonp",
-//     type: 'GET'
-// })
-
-
 
 $('#fetch').click(function(){
     var cName = $('#name').val();
     var rEalm = $('#realm').val();
     var l = Ladda.create(this);
     l.start();
-    $.ajax({
-        url: "https://eu.api.battle.net/wow/character/" + rEalm + "/" + cName + "?jsonp=fetchuser&fields=guild+professions+progression+items+achievements&locale=en_GB&apikey=9tdd7cvwkq922fz7a6438wvvftpf35db",
-        dataType: "jsonp",
-        type: 'GET',
-        success: function (data) {
-        },
-        statusCode: {
-            404: function() {
-                helper_text();
-                $('#bnet_auth').addClass('bg-danger');
-                $('#bnet_fetch .help-block').hide();
-                $('#match_not_found').show();
-                l.stop();
+
+    token(success)
+    function success(){
+        $.ajax({
+            url: "https://eu.api.blizzard.com/wow/character/" + rEalm + "/" + cName + "?jsonp=fetchuser&fields=guild+professions+progression+items+achievements&locale=en_GB&access_token="+token,
+            dataType: "jsonp",
+            type: 'GET',
+            success: function (data) {
             },
-            200: function(){
-                l.stop();
-            },
-            504: function(){
-                l.stop();
-            }
-          }
-    });
+            statusCode: {
+                404: function() {
+                    helper_text();
+                    $('#bnet_auth').addClass('bg-danger');
+                    $('#bnet_fetch .help-block').hide();
+                    $('#match_not_found').show();
+                    l.stop();
+                },
+                200: function(){
+                    l.stop();
+                },
+                504: function(){
+                    l.stop();
+                }
+              }
+        });
+    }
 })
 
 $(function () {

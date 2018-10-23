@@ -89,10 +89,11 @@ $.each(wow_guild.members, function(i, v) {
   if (x.spec != null){
     spec = x.spec.name
   }
+  var realm = x.realm.replace(' ', '-')
   var bigImg = x.thumbnail.replace(/avatar/gi, 'inset')
   bigImg = "'http://render-eu.worldofwarcraft.com/character/" + bigImg + "?alt=/wow/static/images/2d/inset/race/" + x.race + "-" + x.gender + ".jpg'"
   if(loc != null && x.level > 100){
-    loc.append('<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="roster_member c' + x.class + '" style="background-image:url(' + bigImg + ')"><a href="https://worldofwarcraft.com/en-gb/character/' + x.realm + '/' + x.name + '" data-name="' + x.name + '" data-realm="' + x.realm + '"><div class="cName">' + x.name + '</div><div class="cLvl">' + x.level + '</div><div class="cSpec">' + spec + '</div></a></div></div>')
+    loc.append('<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="roster_member c' + x.class + '" style="background-image:url(' + bigImg + ')"><a target="_blank" href="https://worldofwarcraft.com/en-gb/character/' + realm + '/' + x.name + '" data-name="' + x.name + '" data-realm="' + realm + '"><div class="cName">' + x.name + '</div><div class="cLvl">' + x.level + '</div><div class="cSpec">' + spec + '</div></a></div></div>')
   }
   if(i == wow_guild.members.length - 1){
     loadFinished();
@@ -144,19 +145,10 @@ function loadFinished(){
 }
 
 
-//Fetch Guild Data
-$(function() {
-    $.ajax({
-        url: 'https://eu.api.battle.net/wow/guild/Alonsus/Big%20Game%20Hunters?jsonp=fetchguild&fields=members&locale=en_GB&apikey=9tdd7cvwkq922fz7a6438wvvftpf35db',
-        dataType: "jsonp",
-        type: 'GET'
-    })
-})
-
 
 function fetchUserProfile(name, realm){
   $.ajax({
-        url: 'https://eu.api.battle.net/wow/character/' + realm + '/' + name + '?jsonp=fetchprofile&fields=achievements+appearance+feed+items+mounts+pets+professions+progression+pvp+reputation+statistics+stats+titles&locale=en_GB&apikey=9tdd7cvwkq922fz7a6438wvvftpf35db',
+        url: 'https://eu.api.blizzard.com/wow/character/' + realm + '/' + name + '?jsonp=fetchprofile&fields=achievements+appearance+feed+items+mounts+pets+professions+progression+pvp+reputation+statistics+stats+titles&locale=en_GB&access_token='+token,
         dataType: "jsonp",
         type: 'GET'
     })
@@ -194,4 +186,16 @@ function fetchprofile(data){
 $('body').on('change', '.filter_roles input', function(){
   console.log('changed')
   changeFilter();
+})
+
+//Load token and begin
+$(function() {
+  token(token_success)
+  function token_success(){
+    $.ajax({
+      url: 'https://eu.api.blizzard.com/wow/guild/Alonsus/Big%20Game%20Hunters?jsonp=fetchguild&fields=members&locale=en_GB&access_token='+token,
+      dataType: "jsonp",
+      type: 'GET'
+    })
+  }
 })

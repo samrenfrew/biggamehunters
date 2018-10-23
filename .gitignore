@@ -4,5 +4,4 @@ node_modules/
 publish.sh
 .DS_Store
 package-lock.json
-fetch_token.sh
-dist/token.js
+dist/token.json

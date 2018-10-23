@@ -1,0 +1,1 @@
+function token(e){$.ajax({url:"https://biggamehunters.eu/token.json",dataType:"json",type:"GET",success:function(n){token=n.access_token,e()}})}var token;
