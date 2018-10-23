@@ -19,7 +19,7 @@ var slugs = [
 function fetchRaid(zone, name){
     // fetch the raid data from bnet
       $.ajax({
-        url: 'https://eu.api.battle.net/wow/zone/' + zone + '?locale=en_GB&apikey=9tdd7cvwkq922fz7a6438wvvftpf35db',
+        url: 'https://eu.api.blizzard.com/wow/zone/' + zone + '?locale=en_GB&access_token='+token,
         // dataType: "jsonp",
         type: 'GET',
         success: function(data){
@@ -187,7 +187,11 @@ function loadFinished(){
   wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": false }
 }
 
+// Load token and begin
 $(function() {
   // fetch the raids on page load - grab the zone id from wowhead, and enter the name of the raid
-  fetchRaid(9389, 'uldir');
+  token(token_success)
+  function token_success(){
+    fetchRaid(9389, 'uldir')
+  }
 })

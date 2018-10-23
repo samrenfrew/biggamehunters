@@ -192,7 +192,7 @@ fetchnews(data, 0, false);
 
 //Fetch Guild Achievement Data
 $.ajax({
-    url: 'https://eu.api.battle.net/wow/data/guild/achievements?jsonp=fetchachi&locale=en_GB&apikey=9tdd7cvwkq922fz7a6438wvvftpf35db',
+    url: 'https://eu.api.blizzard.com/wow/data/guild/achievements?jsonp=fetchachi&locale=en_GB&access_token='+token,
     dataType: "jsonp",
     type: 'GET'
 })
@@ -209,6 +209,7 @@ wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": tr
 $('.recent_loot').html('');
 var news_limit = 15;
 $.each(data.news.slice( offset ), function(i, v) {
+  console.log(v)
     if(i == news_limit) {
       var new_offset = offset + 15;
       $('.recent_loot').append('<div class="row text-center"><a onclick="fetchnews(wow_guild, ' + new_offset + ', true)" class="btn btn-default">View More</a></div>');
@@ -234,11 +235,18 @@ $.each(data.news.slice( offset ), function(i, v) {
               }
           })
         }
-        $('.recent_loot').append('<div class="row"><a href="http://eu.battle.net/wow/en/character/alonsus/' + v.character + '/simple">' + v.character + '</a> looted <a href="http://wowhead.com/item=' + v.itemId + '" rel="bonus=' + iBonus + '">item</a><br><i>' + iDate + iLoc + '</i></div>')
+        var realm;
+        var w = $.grep(wow_guild.members, function(n,i){
+          return n.character.name == v.character
+        })
+        if(w && w.length != 0){
+          realm = w[0].character.realm.replace(' ', '-')
+        }
+        $('.recent_loot').append('<div class="row"><a target="_blank" href="https://worldofwarcraft.com/en-gb/character/'+realm+'/' + v.character + '">' + v.character + '</a> looted <a href="http://wowhead.com/item=' + v.itemId + '" rel="bonus=' + iBonus + '">item</a><br><i>' + iDate + iLoc + '</i></div>')
     } else if (v.type == 'playerAchievement') {
-        $('.recent_loot').append('<div class="row"><a href="http://eu.battle.net/wow/en/character/alonsus/' + v.character + '/simple">' + v.character + '</a> earned <a href="http://wowhead.com/achievement=' + v.achievement.id + '" rel="who=' + v.character + '&amp;when=' + v.timestamp + '">achievement</a> for ' + v.achievement.points + ' points<br><i>' + iDate + '</i></div>')
+        $('.recent_loot').append('<div class="row"><a target="_blank" href="https://worldofwarcraft.com/en-gb/character/'+realm+'/' + v.character + '">' + v.character + '</a> earned <a href="http://wowhead.com/achievement=' + v.achievement.id + '" rel="who=' + v.character + '&amp;when=' + v.timestamp + '">achievement</a> for ' + v.achievement.points + ' points<br><i>' + iDate + '</i></div>')
     } else if (v.type == 'itemPurchase') {
-        $('.recent_loot').append('<div class="row"><a href="http://eu.battle.net/wow/en/character/alonsus/' + v.character + '/simple">' + v.character + '</a> purchased <a href="http://wowhead.com/item=' + v.itemId + '">item</a><br><i>' + iDate + '</i></div>')
+        $('.recent_loot').append('<div class="row"><a target="_blank" href="https://worldofwarcraft.com/en-gb/character/'+realm+'/' + v.character + '">' + v.character + '</a> purchased <a href="http://wowhead.com/item=' + v.itemId + '">item</a><br><i>' + iDate + '</i></div>')
     }
   }
 })
@@ -250,13 +258,14 @@ function loadFinished(){
   $('.guild_feeds').fadeIn(1000);
 }
 
-//Fetch Guild Data
+// Load token and begin
 $(function() {
-
+  token(token_success)
+  function token_success(){
     $.ajax({
-        url: 'https://eu.api.battle.net/wow/guild/Alonsus/Big%20Game%20Hunters?jsonp=fetchguild&fields=achievements+news+challenge&locale=en_GB&apikey=9tdd7cvwkq922fz7a6438wvvftpf35db',
-        dataType: "jsonp",
-        type: 'GET'
+      url: 'https://eu.api.blizzard.com/wow/guild/Alonsus/Big%20Game%20Hunters?jsonp=fetchguild&fields=achievements+news+challenge+members&locale=en_GB&access_token='+token,
+      dataType: "jsonp",
+      type: 'GET'
     })
-
+  }
 })
