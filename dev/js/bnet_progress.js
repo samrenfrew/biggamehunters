@@ -1,19 +1,8 @@
 /// uldir = 9389
+// battle-of-dazaralor = 8670
 
 var currentRealm = 0;
 var currentRegion = 0;
-
-// uldir slugs
-var slugs = [
-  {"slug":"taloc","full_slug":"taloc"},
-  {"slug":"mother","full_slug":"mother"},
-  {"slug":"fetid-devourer","full_slug":"fetid-devourer"},
-  {"slug":"zekvoz","full_slug":"zekvoz-herald-of-nzoth"},
-  {"slug":"vectis","full_slug":"vectis"},
-  {"slug":"zul","full_slug":"zul-reborn"},
-  {"slug":"mythrax","full_slug":"mythrax-the-unraveler"},
-  {"slug":"ghuun","full_slug":"ghuun"}
-]
 
 // fetch data about raid from bnet
 function fetchRaid(zone, name){
@@ -47,6 +36,30 @@ function fetchRaiderIO(name, difficulty, callback){
 
 // render the data into  empty containers
 function renderRaid(data, zone, name){
+ if (zone == '9389'){
+    slugs = [
+  {"slug":"taloc","full_slug":"taloc","img_slug":"taloc"},
+  {"slug":"mother","full_slug":"mother","img_slug":"mother"},
+  {"slug":"fetid-devourer","full_slug":"fetid-devourer","img_slug":"fetiddevourer"},
+  {"slug":"zekvoz","full_slug":"zekvoz-herald-of-nzoth","img_slug":"zekvozheraldofnzoth"},
+  {"slug":"vectis","full_slug":"vectis","img_slug":"vectis"},
+  {"slug":"zul","full_slug":"zul-reborn","img_slug":"zulreborn"},
+  {"slug":"mythrax","full_slug":"mythrax-the-unraveler","img_slug":"mythraxtheunraveler"},
+  {"slug":"ghuun","full_slug":"ghuun","img_slug":"ghuun"}
+]
+  } else if (zone == '8670'){
+        slugs = [
+  {"slug":"champion-of-the-light","full_slug":"champion-of-the-light","img_slug":"rawani-kanae"},
+  {"slug":"jadefire-masters","full_slug":"jadefire-masters","img_slug":"mara-grimfang"},
+  {"slug":"grong-the-revenant","full_slug":"grong","img_slug":"grong-the-revenant"},
+  {"slug":"opulence","full_slug":"opulence","img_slug":"treasure-guardian"},
+  {"slug":"conclave-of-the-chosen","full_slug":"conclave-of-the-chosen","img_slug":"gonks-aspect"},
+  {"slug":"king-rastakhan","full_slug":"king-rastakhan","img_slug":"king-rastakhan"},
+  {"slug":"mekkatorque","full_slug":"high-tinker-mekkatorque","img_slug":"mekkatorque"},
+  {"slug":"stormwall-blockade","full_slug":"laminaria","img_slug":"laminaria"},
+  {"slug":"lady-jaina-proudmoore","full_slug":"lady-jaina-proudmoore","img_slug":"lady-jaina-proudmoore"}
+]
+  }
 
   var target = $('.progress_data[data-zoneid="'+ zone +'"]')
   var loader = $('.loading[data-zoneid="'+ zone +'"]')
@@ -57,6 +70,11 @@ function renderRaid(data, zone, name){
   // fill with the bosses
   var total = 0;
   $.each(data.bosses, function(i, v){
+    // console.log(v.id + ' - ' + v.urlSlug)
+    if(v.id == '144680' || v.id == '144637' || v.id == '144690'){
+    } else {
+      // console.log('yes')
+
     total = total + 1;
     var slug = v.urlSlug
     var w = $.grep(slugs, function(n,i){
@@ -65,9 +83,11 @@ function renderRaid(data, zone, name){
     var imgSlug, fullSlug
     if(w && w.length != 0){
       fullSlug = w[0].full_slug;
-      imgSlug = fullSlug.replace(/-/g,'');
+      imgSlug = w[0].img_slug;
     }
     target.append('<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><div class="boss" style="background-image:url(http://wow.zamimg.com/images/wow/journal/ui-ej-boss-' + imgSlug + '.png)" id="' + v.id + '" data-slug="'+ fullSlug +'"><h3 class="center-block"><a href="https://www.wowhead.com/npc=' + v.id + '">' + v.name + '</a></h3><div class="text-center mode"></div><div class="text-center date"></div></div></div>');
+
+    }
   })
 
   // update prog bar count
@@ -79,7 +99,10 @@ function renderRaid(data, zone, name){
 
 // fill the bosses with progress
 function fillRaid(zone, name){
-  var heroic, mythic;
+  var normal, heroic, mythic;
+
+    // fetch normal data first
+    fetchRaiderIO(name, 'normal', render)
 
   // fetch heroic data first
     fetchRaiderIO(name, 'heroic', render)
@@ -104,8 +127,10 @@ function fillRaid(zone, name){
           target.find('.date').html(date)
         }
       })
-      renderRank(data)
-      renderProgBar(difficulty, zone, count)
+      renderRank(data, zone)
+      if(difficulty != 'normal'){
+        renderProgBar(difficulty, zone, count)
+      }
       progComplete(zone)
     }
 
@@ -128,18 +153,19 @@ function progComplete(zone){
 }
 
 // render the realm/region rank
-function renderRank(data){
-  if(currentRealm == 0 || data.rank < currentRealm){
+function renderRank(data, zone){
+  console.log(zone + ' - ' + currentRealm)
+  if(currentRealm == 0 || data.rank < currentRealm || data.rank != 0){
     console.log(data.rank)
     console.log(currentRealm)
     currentRealm = data.rank
-    $('.realm .rank_number').html(data.rank)
-    $('.rank').fadeIn();
+    $('.progress_data[data-zoneid="'+ zone +'"]').find('.realm .rank_number').html(data.rank)
+    $('.progress_data[data-zoneid="'+ zone +'"]').find('.rank').fadeIn();
   };
-  if(currentRegion == 0 || data.regionRank < currentRegion){
+  if(currentRegion == 0 || data.regionRank < currentRegion || data.regionRank != 0){
     currentRegion = data.regionRank
-    $('.region .rank_number').html(data.regionRank)
-    $('.rank').fadeIn();
+    $('.progress_data[data-zoneid="'+ zone +'"]').find('.region .rank_number').html(data.regionRank)
+    $('.progress_data[data-zoneid="'+ zone +'"]').find('.rank').fadeIn();
   }
 }
 
@@ -193,5 +219,6 @@ $(function() {
   token(token_success)
   function token_success(){
     fetchRaid(9389, 'uldir')
+    fetchRaid(8670, 'battle-of-dazaralor')
   }
 })
